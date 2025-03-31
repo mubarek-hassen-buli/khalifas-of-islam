@@ -56,6 +56,7 @@
   body {
     @apply bg-islamic-black text-foreground;
     font-family: 'Nunito', sans-serif;
+    overflow-x: hidden;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -98,8 +99,8 @@
   }
 
   .khalifa-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px -5px rgba(212, 175, 55, 0.3);
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.5), 0 10px 25px -5px rgba(212, 175, 55, 0.3);
   }
 
   .story-link {
@@ -140,6 +141,19 @@
     border-radius: inherit;
     z-index: -1;
   }
+  
+  .perspective {
+    perspective: 1000px;
+  }
+  
+  .transform-3d {
+    transform-style: preserve-3d;
+    will-change: transform;
+  }
+  
+  .rotate-icon {
+    animation: rotate-slow 20s linear infinite;
+  }
 }
 
 .islamic-pattern {
@@ -155,6 +169,50 @@
 
 .radial-gradient {
   background: radial-gradient(circle at center, #131b25 0%, #09121f 100%);
+}
+
+@keyframes rotate-slow {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+@keyframes float-animation {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.float-element {
+  animation: float-animation 3s ease-in-out infinite;
+}
+
+@keyframes pulse-animation {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.pulse-element {
+  animation: pulse-animation 2s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -100% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.shimmer-effect {
+  background: linear-gradient(
+    90deg, 
+    rgba(212, 175, 55, 0.1) 25%, 
+    rgba(212, 175, 55, 0.2) 50%, 
+    rgba(212, 175, 55, 0.1) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
 }
 
 /* Custom scroll styles */
@@ -174,3 +232,4 @@
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(212, 175, 55, 0.7);
 }
+

@@ -1,5 +1,5 @@
 
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import CaliphCard from './CaliphCard';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
@@ -60,6 +60,29 @@ const caliphs = [
 
 const CaliphsSection = () => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [scrollProgress, setScrollProgress] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (scrollContainerRef.current) {
+        const { scrollLeft, scrollWidth, clientWidth } = scrollContainerRef.current;
+        const progress = scrollLeft / (scrollWidth - clientWidth);
+        setScrollProgress(progress);
+        
+        // Calculate active card index
+        const cardWidth = scrollWidth / caliphs.length;
+        const activeIdx = Math.round(scrollLeft / cardWidth);
+        setActiveIndex(activeIdx);
+      }
+    };
+
+    const scrollContainer = scrollContainerRef.current;
+    if (scrollContainer) {
+      scrollContainer.addEventListener('scroll', handleScroll);
+      return () => scrollContainer.removeEventListener('scroll', handleScroll);
+    }
+  }, []);
 
   const scroll = (direction: 'left' | 'right') => {
     if (scrollContainerRef.current) {
@@ -75,14 +98,29 @@ const CaliphsSection = () => {
   };
 
   return (
-    <section id="caliphs" className="py-20 relative geometric-pattern">
-      <div className="container mx-auto px-4 md:px-8">
+    <section id="caliphs" className="py-20 relative geometric-pattern overflow-hidden perspective">
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-gold-light/5 rounded-full blur-xl transform-3d" style={{ transform: `translateZ(-100px)` }}></div>
+        <div className="absolute bottom-1/4 right-1/3 w-40 h-40 bg-gold-light/5 rounded-full blur-xl transform-3d" style={{ transform: `translateZ(-150px)` }}></div>
+        <div className="absolute top-1/3 right-1/4 w-24 h-24 bg-gold-light/5 rounded-full blur-xl transform-3d" style={{ transform: `translateZ(-80px)` }}></div>
+      </div>
+      
+      <div className="container mx-auto px-4 md:px-8 relative z-10">
         <div className="flex flex-col md:flex-row justify-between items-center mb-12">
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold font-cinzel gold-gradient mb-4 opacity-0 animate-fade-in" style={{ animationDelay: '0.1s', animationFillMode: 'forwards' }}>
+            <h2 className="text-3xl md:text-4xl font-bold font-cinzel gold-gradient mb-4 opacity-0 animate-fade-in transform-3d" style={{ 
+              animationDelay: '0.1s', 
+              animationFillMode: 'forwards',
+              transform: 'translateZ(30px)',
+              textShadow: '0 0 15px rgba(212,175,55,0.3), 0 0 30px rgba(212,175,55,0.2)'
+            }}>
               The Four Rightly Guided Caliphs
             </h2>
-            <p className="text-white/70 max-w-xl opacity-0 animate-fade-in" style={{ animationDelay: '0.2s', animationFillMode: 'forwards' }}>
+            <p className="text-white/70 max-w-xl opacity-0 animate-fade-in transform-3d" style={{ 
+              animationDelay: '0.2s', 
+              animationFillMode: 'forwards',
+              transform: 'translateZ(20px)'
+            }}>
               After the death of Prophet Muhammad ﷺ in 632 CE, the Muslim community was led by these four caliphs, who continued his legacy and expanded the Islamic state.
             </p>
           </div>
@@ -90,28 +128,64 @@ const CaliphsSection = () => {
           <div className="flex space-x-4 mt-6 md:mt-0">
             <button 
               onClick={() => scroll('left')} 
-              className="w-10 h-10 rounded-full border border-gold/30 flex items-center justify-center text-gold hover:bg-gold/10 transition-colors"
+              className="w-10 h-10 rounded-full border border-gold/30 flex items-center justify-center text-gold hover:bg-gold/10 transition-colors transform-3d"
+              style={{ transform: 'translateZ(20px)' }}
             >
               <ChevronLeft size={20} />
             </button>
             <button 
               onClick={() => scroll('right')} 
-              className="w-10 h-10 rounded-full border border-gold/30 flex items-center justify-center text-gold hover:bg-gold/10 transition-colors"
+              className="w-10 h-10 rounded-full border border-gold/30 flex items-center justify-center text-gold hover:bg-gold/10 transition-colors transform-3d"
+              style={{ transform: 'translateZ(20px)' }}
             >
               <ChevronRight size={20} />
             </button>
           </div>
         </div>
         
-        <div 
-          ref={scrollContainerRef}
-          className="flex space-x-6 overflow-x-auto pb-8 snap-x scrollbar-none"
-        >
-          {caliphs.map((caliph, index) => (
-            <div key={index} className="min-w-[300px] snap-start">
-              <CaliphCard {...caliph} index={index} />
-            </div>
-          ))}
+        <div className="relative">
+          <div 
+            ref={scrollContainerRef}
+            className="flex space-x-6 overflow-x-auto pb-12 snap-x scrollbar-none relative"
+            style={{ 
+              perspective: '1000px',
+              transformStyle: 'preserve-3d'
+            }}
+          >
+            {caliphs.map((caliph, index) => (
+              <div 
+                key={index} 
+                className="min-w-[300px] snap-start transform-3d"
+                style={{
+                  transform: `translateZ(${index === activeIndex ? 40 : 0}px) ${index === activeIndex ? 'scale(1.05)' : 'scale(1)'}`,
+                  transition: 'transform 0.5s ease',
+                  opacity: 1 - 0.2 * Math.abs(index - activeIndex),
+                }}
+              >
+                <CaliphCard {...caliph} index={index} />
+              </div>
+            ))}
+          </div>
+          
+          <div className="absolute bottom-0 left-0 right-0 flex justify-center space-x-2 mt-4">
+            {caliphs.map((_, index) => (
+              <button
+                key={index}
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                  index === activeIndex ? 'bg-gold w-6' : 'bg-gold/30'
+                }`}
+                onClick={() => {
+                  if (scrollContainerRef.current) {
+                    const cardWidth = scrollContainerRef.current.scrollWidth / caliphs.length;
+                    scrollContainerRef.current.scrollTo({
+                      left: cardWidth * index,
+                      behavior: 'smooth'
+                    });
+                  }
+                }}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>
