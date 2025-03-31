@@ -24,7 +24,7 @@ const Navbar = () => {
       <div className="container mx-auto flex items-center justify-between">
         <a href="#" className="flex items-center">
           <div className="relative w-10 h-10 mr-2">
-            <div className="absolute inset-0 border-2 border-gold-light rounded-full animate-rotate-slow opacity-60"></div>
+            <div className="absolute inset-0 border-2 border-gold-light rounded-full opacity-60"></div>
             <div className="flex items-center justify-center w-full h-full">
               <span className="text-xl font-bold gold-gradient font-cinzel">خ</span>
             </div>

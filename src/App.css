@@ -45,8 +45,8 @@
 
 /* Custom animations */
 @keyframes float-animation {
-  0%, 100% { transform: translateY(0) rotateX(0) rotateY(0); }
-  50% { transform: translateY(-10px) rotateX(5deg) rotateY(5deg); }
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
 }
 
 .float-element {
@@ -77,64 +77,4 @@
   );
   background-size: 200% 100%;
   animation: shimmer 2s infinite;
-}
-
-/* 3D effect styles */
-.rotate-3d {
-  animation: rotate3d 20s linear infinite;
-}
-
-@keyframes rotate3d {
-  0% {
-    transform: perspective(1000px) rotateY(0deg) rotateX(0deg);
-  }
-  25% {
-    transform: perspective(1000px) rotateY(90deg) rotateX(10deg);
-  }
-  50% {
-    transform: perspective(1000px) rotateY(180deg) rotateX(0deg);
-  }
-  75% {
-    transform: perspective(1000px) rotateY(270deg) rotateX(-10deg);
-  }
-  100% {
-    transform: perspective(1000px) rotateY(360deg) rotateX(0deg);
-  }
-}
-
-.parallax-scroll {
-  will-change: transform;
-  transform-style: preserve-3d;
-  transition: transform 0.1s;
-}
-
-.shadow-3d {
-  box-shadow: 
-    0 10px 15px -3px rgba(0, 0, 0, 0.3),
-    0 4px 6px -4px rgba(0, 0, 0, 0.3),
-    0 0 0 1px rgba(212, 175, 55, 0.05) inset,
-    0 -10px 15px -3px rgba(0, 0, 0, 0.1) inset;
-}
-
-.glow-effect {
-  box-shadow: 0 0 15px 5px rgba(212, 175, 55, 0.2);
-  animation: glow-pulse 2s ease-in-out infinite;
-}
-
-@keyframes glow-pulse {
-  0%, 100% {
-    box-shadow: 0 0 15px 5px rgba(212, 175, 55, 0.2);
-  }
-  50% {
-    box-shadow: 0 0 25px 8px rgba(212, 175, 55, 0.3);
-  }
-}
-
-.card-3d {
-  transform-style: preserve-3d;
-  transition: transform 0.3s;
-}
-
-.card-3d:hover {
-  transform: translateY(-10px) scale(1.02) rotateX(5deg) rotateY(5deg);
 }
