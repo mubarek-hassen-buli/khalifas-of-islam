@@ -1,7 +1,7 @@
+
 #root {
-  max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
+  width: 100%;
   text-align: center;
 }
 
@@ -11,11 +11,13 @@
   will-change: filter;
   transition: filter 300ms;
 }
+
 .logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+  filter: drop-shadow(0 0 2em rgba(212, 175, 55, 0.6));
 }
+
 .logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+  filter: drop-shadow(0 0 2em rgba(212, 175, 55, 0.6));
 }
 
 @keyframes logo-spin {
@@ -39,4 +41,40 @@
 
 .read-the-docs {
   color: #888;
+}
+
+/* Custom animations */
+@keyframes float-animation {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.float-element {
+  animation: float-animation 3s ease-in-out infinite;
+}
+
+@keyframes pulse-animation {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.pulse-element {
+  animation: pulse-animation 2s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -100% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.shimmer-effect {
+  background: linear-gradient(
+    90deg, 
+    rgba(212, 175, 55, 0.1) 25%, 
+    rgba(212, 175, 55, 0.2) 50%, 
+    rgba(212, 175, 55, 0.1) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
 }
