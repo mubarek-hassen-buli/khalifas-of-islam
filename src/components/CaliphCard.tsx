@@ -50,11 +50,11 @@ const CaliphCard: React.FC<CaliphCardProps> = ({
         <p className="text-sm text-center text-white/70 mb-4">{title}</p>
         <div className="text-xs text-center text-white/50 mb-4">{years}</div>
         
-        <p className="text-sm text-white/80 mb-4 flex-grow">{description}</p>
+        <p className="text-sm text-white/80 mb-4 flex-grow line-clamp-4">{description}</p>
         
         <div className={cn(
           "overflow-hidden transition-all duration-300",
-          isHovered ? "max-h-40 opacity-100" : "max-h-0 opacity-0"
+          isHovered ? "max-h-44 opacity-100" : "max-h-0 opacity-0"
         )}>
           <h4 className="text-sm font-semibold text-gold-light mb-2">Key Contributions:</h4>
           <ul className="text-xs text-white/70 space-y-1 pl-4">
