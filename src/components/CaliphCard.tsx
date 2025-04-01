@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { cn } from '@/lib/utils';
 
 interface CaliphCardProps {
@@ -10,6 +11,7 @@ interface CaliphCardProps {
   achievements: string[];
   image: string;
   index: number;
+  slug: string;
 }
 
 const CaliphCard: React.FC<CaliphCardProps> = ({ 
@@ -19,7 +21,8 @@ const CaliphCard: React.FC<CaliphCardProps> = ({
   description, 
   achievements,
   image,
-  index
+  index,
+  slug
 }) => {
   const [isHovered, setIsHovered] = useState(false);
   
@@ -65,9 +68,12 @@ const CaliphCard: React.FC<CaliphCardProps> = ({
         </div>
         
         <div className="mt-4 text-center">
-          <span className="text-xs text-gold-light cursor-pointer story-link shimmer-effect">
+          <Link 
+            to={`/caliph/${slug}`} 
+            className="text-xs text-gold-light cursor-pointer story-link shimmer-effect"
+          >
             Learn more
-          </span>
+          </Link>
         </div>
 
         <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-3/4 h-10 bg-black/40 filter blur-xl rounded-full -z-10 opacity-70"></div>

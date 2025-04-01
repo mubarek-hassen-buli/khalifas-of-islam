@@ -1,4 +1,3 @@
-
 import React, { useRef, useEffect, useState } from 'react';
 import CaliphCard from './CaliphCard';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
@@ -15,7 +14,8 @@ const caliphs = [
       "Suppressed apostasy and rebellion",
       "Laid foundations for Islamic governance"
     ],
-    image: "https://images.unsplash.com/photo-1492321936769-b49830bc1d1e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+    image: "https://images.unsplash.com/photo-1492321936769-b49830bc1d1e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    slug: "abu-bakr"
   },
   {
     name: "Umar ibn Al-Khattab",
@@ -28,7 +28,8 @@ const caliphs = [
       "Created governmental departments and census",
       "Known for strict justice and accountability"
     ],
-    image: "https://images.unsplash.com/photo-1466442929976-97f336a657be?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+    image: "https://images.unsplash.com/photo-1466442929976-97f336a657be?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    slug: "umar"
   },
   {
     name: "Uthman ibn Affan",
@@ -41,7 +42,8 @@ const caliphs = [
       "Further expanded Islamic territories",
       "Known for his exemplary generosity and modesty"
     ],
-    image: "https://images.unsplash.com/photo-1492321936769-b49830bc1d1e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+    image: "https://images.unsplash.com/photo-1492321936769-b49830bc1d1e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    slug: "uthman"
   },
   {
     name: "Ali ibn Abi Talib",
@@ -54,7 +56,8 @@ const caliphs = [
       "Famous for his eloquence and literary contributions",
       "Exemplified courage and principled leadership"
     ],
-    image: "https://images.unsplash.com/photo-1460574283810-2aab119d8511?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+    image: "https://images.unsplash.com/photo-1460574283810-2aab119d8511?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    slug: "ali"
   }
 ];
 
@@ -70,7 +73,6 @@ const CaliphsSection = () => {
         const progress = scrollLeft / (scrollWidth - clientWidth);
         setScrollProgress(progress);
         
-        // Calculate active card index
         const cardWidth = scrollWidth / caliphs.length;
         const activeIdx = Math.round(scrollLeft / cardWidth);
         setActiveIndex(activeIdx);
