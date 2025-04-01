@@ -9,12 +9,13 @@ import { ArrowLeft, Calendar, Users, BookOpen, Award, Heart, Skull } from 'lucid
 const caliphBiographies = {
   'abu-bakr': {
     name: "Abu Bakr As-Siddiq",
+    arabicName: "أبو بكر الصديق",
     title: "The Truthful",
     years: "632-634 CE",
     lifespan: "573-634 CE (aged 61)",
     birthplace: "Mecca, Arabia",
     fullName: "Abdullah ibn Abi Quhafah",
-    mainImage: "https://images.unsplash.com/photo-1492321936769-b49830bc1d1e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    mainImage: "https://images.unsplash.com/photo-1466442929976-97f336a657be?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
     secondaryImage: "https://images.unsplash.com/photo-1465379944081-7f47de8d74ac?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
     background: "Abu Bakr was born into a wealthy merchant family and was known for his honest business practices. He was among the first converts to Islam and was Prophet Muhammad's closest companion.",
     personalLife: "Abu Bakr married four women throughout his life: Qutaylah bint Abd al-Uzza, Umm Ruman, Habibah bint Kharijah, and Asma bint Umais. He had six children: Aisha, Abdullah, Asma, Abdur-Rahman, Umm Kulthum, and Muhammad.",
@@ -36,6 +37,7 @@ const caliphBiographies = {
   },
   'umar': {
     name: "Umar ibn Al-Khattab",
+    arabicName: "عمر بن الخطاب",
     title: "Al-Farooq (The Distinguisher)",
     years: "634-644 CE",
     lifespan: "584-644 CE (aged 60)",
@@ -63,6 +65,7 @@ const caliphBiographies = {
   },
   'uthman': {
     name: "Uthman ibn Affan",
+    arabicName: "عثمان بن عفان",
     title: "Dhun-Nurayn (Possessor of Two Lights)",
     years: "644-656 CE",
     lifespan: "576-656 CE (aged 80)",
@@ -90,6 +93,7 @@ const caliphBiographies = {
   },
   'ali': {
     name: "Ali ibn Abi Talib",
+    arabicName: "علي بن أبي طالب",
     title: "Asad Allah (Lion of Allah)",
     years: "656-661 CE",
     lifespan: "601-661 CE (aged 60)",
@@ -167,6 +171,10 @@ const CaliphBiography = () => {
             <ArrowLeft size={16} className="mr-2" />
             <span>Back to Caliphs</span>
           </Link>
+          
+          <div className="mb-6 text-center md:text-left">
+            <h2 className="text-3xl md:text-5xl font-arabic text-gold-light mb-2 opacity-80">{caliph.arabicName}</h2>
+          </div>
           
           <h1 
             className="text-4xl md:text-6xl font-bold font-cinzel text-white mb-3 transform-3d animate-fade-in"

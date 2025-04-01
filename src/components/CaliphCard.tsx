@@ -12,6 +12,7 @@ interface CaliphCardProps {
   image: string;
   index: number;
   slug: string;
+  arabicName: string;
 }
 
 const CaliphCard: React.FC<CaliphCardProps> = ({ 
@@ -22,7 +23,8 @@ const CaliphCard: React.FC<CaliphCardProps> = ({
   achievements,
   image,
   index,
-  slug
+  slug,
+  arabicName
 }) => {
   const [isHovered, setIsHovered] = useState(false);
   
@@ -47,6 +49,10 @@ const CaliphCard: React.FC<CaliphCardProps> = ({
             alt={name}
             className="w-full h-full object-cover rounded-full border-2 border-gold/30 relative z-10 shadow-xl"
           />
+        </div>
+        
+        <div className="text-center mb-2 opacity-70">
+          <p className="text-gold-light font-arabic text-xl" style={{ opacity: 0.9 }}>{arabicName}</p>
         </div>
         
         <h3 className="text-xl font-cinzel font-bold text-center gold-gradient mb-1">{name}</h3>
