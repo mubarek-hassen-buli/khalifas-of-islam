@@ -1,3 +1,4 @@
+
 import React, { useRef, useEffect, useState } from 'react';
 import CaliphCard from './CaliphCard';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
@@ -5,6 +6,7 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 const caliphs = [
   {
     name: "Abu Bakr As-Siddiq",
+    arabicName: "أبو بكر الصديق",
     title: "The Truthful",
     years: "632-634 CE",
     description: "First Caliph of Islam and closest companion to Prophet Muhammad ﷺ. Known for his unwavering faith, wisdom and successful leadership during critical times.",
@@ -19,6 +21,7 @@ const caliphs = [
   },
   {
     name: "Umar ibn Al-Khattab",
+    arabicName: "عمر بن الخطاب",
     title: "Al-Farooq (The Distinguisher)",
     years: "634-644 CE",
     description: "Second Caliph whose reign saw the rapid expansion of the Islamic empire. Known for his justice, strength, and administrative innovations.",
@@ -33,6 +36,7 @@ const caliphs = [
   },
   {
     name: "Uthman ibn Affan",
+    arabicName: "عثمان بن عفان",
     title: "Dhun-Nurayn (Possessor of Two Lights)",
     years: "644-656 CE",
     description: "Third Caliph whose generosity and standardization of the Quran preserved Islam's core text. His kindness and modesty were legendary.",
@@ -47,6 +51,7 @@ const caliphs = [
   },
   {
     name: "Ali ibn Abi Talib",
+    arabicName: "علي بن أبي طالب",
     title: "Asad Allah (Lion of Allah)",
     years: "656-661 CE",
     description: "Fourth Caliph and cousin and son-in-law of Prophet Muhammad ﷺ. Renowned for his profound knowledge, bravery in battle, and eloquence in speech.",
