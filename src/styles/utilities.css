@@ -1,0 +1,85 @@
+
+@layer utilities {
+  .gold-gradient {
+    background: linear-gradient(135deg, #f5d77b 0%, #d4af37 50%, #a3841a 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .gold-gradient-bg {
+    background: linear-gradient(135deg, #f5d77b 0%, #d4af37 50%, #a3841a 100%);
+  }
+
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  .glass {
+    background: rgba(19, 27, 37, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(212, 175, 55, 0.1);
+  }
+
+  .khalifa-card {
+    transition: all 0.3s ease;
+  }
+
+  .khalifa-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.5), 0 10px 25px -5px rgba(212, 175, 55, 0.3);
+  }
+
+  .story-link {
+    position: relative;
+    display: inline-block;
+  }
+
+  .story-link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    background-color: #d4af37;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+
+  .story-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+
+  .golden-border {
+    position: relative;
+  }
+
+  .golden-border::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(135deg, #f5d77b 0%, #d4af37 50%, #a3841a 100%);
+    border-radius: inherit;
+    z-index: -1;
+  }
+  
+  .perspective {
+    perspective: 1000px;
+  }
+  
+  .transform-3d {
+    transform-style: preserve-3d;
+    will-change: transform;
+  }
+  
+  .blur-3xl {
+    --tw-blur: blur(64px);
+    filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+  }
+}
