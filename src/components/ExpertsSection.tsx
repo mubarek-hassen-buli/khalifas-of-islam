@@ -18,7 +18,7 @@ const experts = [
       "Combined historical narration with hadith methodology",
       "Preserved early Islamic tradition through rigorous documentation"
     ],
-    image: "https://images.unsplash.com/photo-1492321936769-b49830bc1d1e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    image: "https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
     slug: "al-tabari"
   },
   {
@@ -35,7 +35,7 @@ const experts = [
       "Compiled authentic narrations about the Caliphs",
       "Bridged theological understanding with historical events"
     ],
-    image: "https://images.unsplash.com/photo-1466442929976-97f336a657be?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    image: "https://images.unsplash.com/photo-1585036156171-384164a8c675?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
     slug: "ibn-kathir"
   },
   {
@@ -52,7 +52,7 @@ const experts = [
       "Preserved personal details about the Caliphs",
       "Established standards for Islamic biographical writing"
     ],
-    image: "https://images.unsplash.com/photo-1460574283810-2aab119d8511?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    image: "https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
     slug: "muhammad-ibn-sad"
   }
 ];

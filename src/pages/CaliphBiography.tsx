@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
@@ -15,8 +14,8 @@ const caliphBiographies = {
     lifespan: "573-634 CE (aged 61)",
     birthplace: "Mecca, Arabia",
     fullName: "Abdullah ibn Abi Quhafah",
-    mainImage: "https://images.unsplash.com/photo-1466442929976-97f336a657be?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    secondaryImage: "https://images.unsplash.com/photo-1465379944081-7f47de8d74ac?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    mainImage: "https://images.unsplash.com/photo-1542127306-0c407ede5d28?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    secondaryImage: "https://images.unsplash.com/photo-1605218873203-323dd4626c10?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
     background: "Abu Bakr was born into a wealthy merchant family and was known for his honest business practices. He was among the first converts to Islam and was Prophet Muhammad's closest companion.",
     personalLife: "Abu Bakr married four women throughout his life: Qutaylah bint Abd al-Uzza, Umm Ruman, Habibah bint Kharijah, and Asma bint Umais. He had six children: Aisha, Abdullah, Asma, Abdur-Rahman, Umm Kulthum, and Muhammad.",
     leadershipStyle: "Known for his gentle yet firm leadership, Abu Bakr maintained the unity of the Muslim community during a critical period following the Prophet's death. He was humble, lived simply despite his authority, and was known for his fairness and wisdom.",
@@ -43,8 +42,8 @@ const caliphBiographies = {
     lifespan: "584-644 CE (aged 60)",
     birthplace: "Mecca, Arabia",
     fullName: "Umar ibn Al-Khattab Al-Adawi Al-Qurashi",
-    mainImage: "https://images.unsplash.com/photo-1466442929976-97f336a657be?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    secondaryImage: "https://images.unsplash.com/photo-1469041797191-50ace28483c3?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    mainImage: "https://images.unsplash.com/photo-1519828158127-4e8dee9e5639?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    secondaryImage: "https://images.unsplash.com/photo-1601991087252-ed907f653e3a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
     background: "Born to a merchant family of the Banu Adi clan, Umar was initially one of Islam's strongest opponents before becoming one of its most ardent supporters. His conversion marked a turning point for the early Muslim community.",
     personalLife: "Umar had nine wives throughout his lifetime, though not all simultaneously, and had fourteen children. Among his notable children were Abdullah ibn Umar, a great scholar, and Hafsa, who became one of Prophet Muhammad's wives.",
     leadershipStyle: "Umar was known for his strict justice, accessibility to the common people, and innovative administrative approaches. He lived simply despite being the leader of a vast empire and was known to personally inspect the conditions of his subjects.",
@@ -71,8 +70,8 @@ const caliphBiographies = {
     lifespan: "576-656 CE (aged 80)",
     birthplace: "Ta'if, Arabia",
     fullName: "Uthman ibn Affan ibn Abi al-As",
-    mainImage: "https://images.unsplash.com/photo-1492321936769-b49830bc1d1e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    secondaryImage: "https://images.unsplash.com/photo-1466721591366-2d5fba72006d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    mainImage: "https://images.unsplash.com/photo-1523731407965-2430cd12f5e4?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    secondaryImage: "https://images.unsplash.com/photo-1605540436563-5bca919ae766?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
     background: "Born into the wealthy Umayyad clan, Uthman was a successful merchant before embracing Islam. He was known for his modesty and generosity despite his wealth. He earned the title 'Dhun-Nurayn' (Possessor of Two Lights) for marrying two of Prophet Muhammad's daughters, Ruqayyah and Umm Kulthum.",
     personalLife: "Uthman's most famous marriages were to Prophet Muhammad's daughters Ruqayyah and, after her death, Umm Kulthum. He had a total of nine children from various marriages. He was known for his exceptional modesty and shyness.",
     leadershipStyle: "Uthman's leadership was characterized by generosity, consultation, and reliance on family members for administration. He expanded the empire while focusing on internal consolidation and religious standardization.",
@@ -99,8 +98,8 @@ const caliphBiographies = {
     lifespan: "601-661 CE (aged 60)",
     birthplace: "Mecca, Arabia",
     fullName: "Ali ibn Abi Talib ibn Abd al-Muttalib",
-    mainImage: "https://images.unsplash.com/photo-1460574283810-2aab119d8511?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    secondaryImage: "https://images.unsplash.com/photo-1493962853295-0fd70327578a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    mainImage: "https://images.unsplash.com/photo-1564769610726-59cead6a6f8f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    secondaryImage: "https://images.unsplash.com/photo-1519692933481-e162a57d6721?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
     background: "Ali was Prophet Muhammad's cousin and son-in-law, raised in the Prophet's household from a young age. He was the first male child to accept Islam and was known for his extraordinary courage, deep knowledge, and eloquence.",
     personalLife: "Ali was married to Fatimah, the daughter of Prophet Muhammad, and they had five children: Hassan, Hussein, Zainab, Umm Kulthum, and Muhsin. After Fatimah's death, Ali married several other women and had a total of 15 children.",
     leadershipStyle: "Ali's leadership was marked by strict justice, simplicity, and a deep commitment to Islamic principles. He was known for his accessibility to common people and his unwillingness to compromise on matters of principle.",
