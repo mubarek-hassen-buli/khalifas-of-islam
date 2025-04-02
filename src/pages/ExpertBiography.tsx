@@ -47,8 +47,8 @@ const experts = [
     legacies: "Al-Tabari's works form the foundation of Islamic historiography. His attention to detail, comprehensive approach, and commitment to authenticating sources established standards that influenced generations of historians. His accounts of the Rashidun Caliphs remain primary source material for understanding this crucial period.",
     quote: "History is not merely the recording of facts, but the preservation of meaning behind those facts. In understanding our past, we illuminate the path for our future.",
     influence: "His influence extends beyond the Islamic world, as his historical works were translated and studied by Western scholars, providing vital information about early Islamic civilization and governance.",
-    image: "https://images.unsplash.com/photo-1492321936769-b49830bc1d1e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    coverImage: "https://images.unsplash.com/photo-1519074069444-1ba4fff66d16?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+    image: "https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    coverImage: "https://images.unsplash.com/photo-1519692933481-e162a57d6721?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
     slug: "al-tabari"
   },
   {
@@ -90,8 +90,8 @@ const experts = [
     legacies: "Ibn Kathir's works remain highly influential in Islamic scholarship to this day. His approach to history and Quranic interpretation, with its emphasis on authentication and clear explanation, continues to shape modern Islamic education and research.",
     quote: "The strongest foundation of knowledge is that which is built upon authentic narration and sound reasoning, for truth stands clear from error.",
     influence: "His historical accounts of the Rashidun Caliphs provide invaluable insights into their governance, character, and contributions to Islamic civilization. His work continues to be translated into numerous languages and studied globally.",
-    image: "https://images.unsplash.com/photo-1466442929976-97f336a657be?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    coverImage: "https://images.unsplash.com/photo-1586158291800-2665f07bba79?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+    image: "https://images.unsplash.com/photo-1585036156171-384164a8c675?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    coverImage: "https://images.unsplash.com/photo-1542323228-002ac256e7b8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
     slug: "ibn-kathir"
   },
   {
@@ -128,8 +128,8 @@ const experts = [
     legacies: "Ibn Sa'd's work preserved crucial details about early Islamic figures that would have otherwise been lost. His comprehensive biographical approach influenced the development of historical documentation in Islamic scholarship and provided an invaluable resource for understanding the lives of the Rashidun Caliphs.",
     quote: "The true measure of a person lies not only in their great deeds but in the small details of their character and daily conduct.",
     influence: "His detailed accounts of the Rashidun Caliphs provide intimate insights into their personal lives, administrative decisions, and leadership styles, offering a more complete picture than purely event-based historical records.",
-    image: "https://images.unsplash.com/photo-1460574283810-2aab119d8511?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    coverImage: "https://images.unsplash.com/photo-1465321897912-c692b37a09a6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+    image: "https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    coverImage: "https://images.unsplash.com/photo-1581252584739-5e4f9b4b829d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
     slug: "muhammad-ibn-sad"
   }
 ];
