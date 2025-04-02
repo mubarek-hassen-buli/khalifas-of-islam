@@ -2,60 +2,7 @@
 import React, { useState } from 'react';
 import { cn } from '@/lib/utils';
 import { Link } from 'react-router-dom';
-
-const experts = [
-  {
-    name: "Al-Tabari",
-    fullName: "Abu Ja'far Muhammad ibn Jarir al-Tabari",
-    arabicName: "أبو جعفر محمد بن جرير الطبري",
-    title: "Islamic Scholar & Historian",
-    specialty: "Islamic History",
-    era: "839-923 CE",
-    description: "One of the most prominent and influential scholars in Islamic historiography. His monumental work 'History of the Prophets and Kings' provides invaluable insights into early Islamic history, including detailed accounts of the Rashidun Caliphs.",
-    contributions: [
-      "Authored comprehensive historical chronicles",
-      "Recorded detailed accounts of the Four Caliphs",
-      "Combined historical narration with hadith methodology",
-      "Preserved early Islamic tradition through rigorous documentation"
-    ],
-    image: "https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    slug: "al-tabari"
-  },
-  {
-    name: "Ibn Kathir",
-    fullName: "Ismail ibn Kathir ad-Dimashqi",
-    arabicName: "إسماعيل بن عمر بن كثير",
-    title: "Islamic Scholar & Historian",
-    specialty: "Quranic Exegesis & History",
-    era: "1300-1373 CE",
-    description: "A highly influential scholar known for his exceptional works in Quranic interpretation and historical documentation. His 'Al-Bidaya wa'l-Nihaya' (The Beginning and The End) contains valuable historical accounts of the Rashidun Caliphs.",
-    contributions: [
-      "Wrote seminal works on Islamic history",
-      "Developed methodical approach to historical verification",
-      "Compiled authentic narrations about the Caliphs",
-      "Bridged theological understanding with historical events"
-    ],
-    image: "https://images.unsplash.com/photo-1585036156171-384164a8c675?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    slug: "ibn-kathir"
-  },
-  {
-    name: "Muhammad ibn Sa'd",
-    fullName: "Muhammad ibn Sa'd ibn Mani' al-Baghdadi",
-    arabicName: "محمد بن سعد",
-    title: "Islamic Biographer & Scholar",
-    specialty: "Biographical Documentation",
-    era: "784-845 CE",
-    description: "A pioneering figure in Islamic biographical literature and a student of the renowned scholar al-Waqidi. His magnum opus 'Kitab al-Tabaqat al-Kabir' (The Book of Major Classes) offers detailed biographies of the Prophet Muhammad ﷺ, his companions, and the early caliphs.",
-    contributions: [
-      "Created comprehensive biographical records",
-      "Developed the tabaqat (generational) method of documentation",
-      "Preserved personal details about the Caliphs",
-      "Established standards for Islamic biographical writing"
-    ],
-    image: "https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    slug: "muhammad-ibn-sad"
-  }
-];
+import { experts } from '@/data/expertsData';
 
 const ExpertsSection = () => {
   const [hoveredExpert, setHoveredExpert] = useState<number | null>(null);
