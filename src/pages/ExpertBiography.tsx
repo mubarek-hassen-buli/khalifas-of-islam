@@ -7,9 +7,9 @@ import { useToast } from '@/components/ui/use-toast';
 import { experts, Expert } from '@/data/expertsData';
 import ExpertHero from '@/components/expert/ExpertHero';
 import ExpertSidebar from '@/components/expert/ExpertSidebar';
-import ExpertNavigation from '@/components/expert/ExpertNavigation';
 import ExpertContent from '@/components/expert/ExpertContent';
 import NotFound from '@/components/caliph/NotFound';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const ExpertBiography = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -17,6 +17,7 @@ const ExpertBiography = () => {
   const [loading, setLoading] = useState(true);
   const [activeSection, setActiveSection] = useState('biography');
   const { toast } = useToast();
+  const isMobile = useIsMobile();
   
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -58,25 +59,24 @@ const ExpertBiography = () => {
       {/* Main Content */}
       <div className="container mx-auto px-4 py-12 md:py-16">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          <ExpertSidebar expert={expert} />
+          <ExpertSidebar 
+            expert={expert} 
+            activeSection={activeSection}
+            setActiveSection={setActiveSection}
+            isMobile={isMobile}
+          />
           
-          {/* Navigation - Only visible on mobile in sidebar, visible for desktop */}
-          <div className="lg:hidden mb-6">
-            <ExpertNavigation 
-              activeSection={activeSection} 
-              setActiveSection={setActiveSection} 
-            />
+          {/* Navigation is now only rendered once - in the Desktop column */}
+          {!isMobile && (
+            <div className="hidden lg:block">
+              <ExpertContent expert={expert} activeSection={activeSection} />
+            </div>
+          )}
+          
+          {/* Mobile and Desktop Content */}
+          <div className={isMobile ? "col-span-1" : "lg:col-span-2"}>
+            <ExpertContent expert={expert} activeSection={activeSection} />
           </div>
-          
-          {/* Desktop Navigation - Only visible on desktop */}
-          <div className="hidden lg:block">
-            <ExpertNavigation 
-              activeSection={activeSection} 
-              setActiveSection={setActiveSection} 
-            />
-          </div>
-          
-          <ExpertContent expert={expert} activeSection={activeSection} />
         </div>
       </div>
       

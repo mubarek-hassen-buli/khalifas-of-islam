@@ -12,12 +12,10 @@ interface ExpertContentProps {
 
 const ExpertContent: React.FC<ExpertContentProps> = ({ expert, activeSection }) => {
   return (
-    <div className="lg:col-span-2">
-      <div className="bg-islamic-charcoal border border-gold/10 rounded-xl p-6 md:p-8 transform-3d" style={{ transform: 'translateZ(15px)' }}>
-        {activeSection === 'biography' && <ExpertBiographySection expert={expert} />}
-        {activeSection === 'works' && <ExpertWorksSection expert={expert} />}
-        {activeSection === 'legacy' && <ExpertLegacySection expert={expert} />}
-      </div>
+    <div className="bg-islamic-charcoal border border-gold/10 rounded-xl p-6 md:p-8 transform-3d" style={{ transform: 'translateZ(15px)' }}>
+      {activeSection === 'biography' && <ExpertBiographySection expert={expert} />}
+      {activeSection === 'works' && <ExpertWorksSection expert={expert} />}
+      {activeSection === 'legacy' && <ExpertLegacySection expert={expert} />}
     </div>
   );
 };
