@@ -1,29 +1,36 @@
 
 import React from 'react';
 import { Expert } from '@/data/expertsData';
+import ExpertNavigation from './ExpertNavigation';
 
 interface ExpertSidebarProps {
   expert: Expert;
+  activeSection: string;
+  setActiveSection: (section: string) => void;
 }
 
-const ExpertSidebar: React.FC<ExpertSidebarProps> = ({ expert }) => {
+const ExpertSidebar: React.FC<ExpertSidebarProps> = ({ expert, activeSection, setActiveSection }) => {
   return (
-    <div className="lg:col-span-1">
-      <div className="bg-islamic-charcoal border border-gold/10 rounded-xl p-6 mb-6 transform-3d" style={{ transform: 'translateZ(10px)' }}>
-        <div className="flex flex-col items-center mb-6">
-          <div className="w-32 h-32 rounded-full overflow-hidden border-2 border-gold/30 mb-4">
+    <div className="space-y-8 order-first lg:order-last">
+      {/* Profile Image */}
+      <div className="relative animate-fade-in transform-3d" style={{ animationDelay: '0.5s', transform: 'translateZ(30px)' }}>
+        <div className="absolute -inset-1 bg-gradient-to-r from-gold-light via-gold to-gold-dark rounded-xl blur-sm opacity-30"></div>
+        <div className="relative overflow-hidden rounded-xl">
+          <div className="w-full h-80 rounded-xl overflow-hidden">
             <img 
               src={expert.image} 
               alt={expert.name} 
               className="w-full h-full object-cover"
             />
+            <div className="absolute inset-0 bg-gradient-to-t from-islamic-black/80 to-transparent"></div>
           </div>
-          <h3 className="text-2xl font-cinzel font-semibold text-center gold-gradient mb-1">{expert.fullName}</h3>
-          <p className="text-gold-light/80 text-sm mb-1">{expert.specialty}</p>
-          <p className="text-white/50 text-xs">{expert.birthPlace} • {expert.era}</p>
         </div>
-        
-        <div className="space-y-4 border-t border-gold/10 pt-4">
+      </div>
+      
+      {/* Expert Information Card */}
+      <div className="bg-islamic-charcoal p-6 rounded-xl border border-gold/10 animate-fade-in transform-3d" style={{ animationDelay: '0.6s', transform: 'translateZ(20px)' }}>
+        <h3 className="text-xl font-semibold font-cinzel text-white mb-4">Profile</h3>
+        <div className="space-y-4">
           <div>
             <h4 className="text-gold-light text-sm font-semibold mb-1">Era</h4>
             <p className="text-white/80 text-sm">{expert.era}</p>
@@ -41,6 +48,15 @@ const ExpertSidebar: React.FC<ExpertSidebarProps> = ({ expert }) => {
             <p className="text-white/80 text-sm">{expert.age} years</p>
           </div>
         </div>
+      </div>
+      
+      {/* Navigation */}
+      <div className="bg-islamic-charcoal p-6 rounded-xl border border-gold/10 sticky top-24 animate-fade-in transform-3d" style={{ animationDelay: '0.7s', transform: 'translateZ(20px)' }}>
+        <h3 className="text-xl font-semibold font-cinzel text-white mb-4">Navigate</h3>
+        <ExpertNavigation 
+          activeSection={activeSection} 
+          setActiveSection={setActiveSection} 
+        />
       </div>
     </div>
   );

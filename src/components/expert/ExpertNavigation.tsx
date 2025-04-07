@@ -9,29 +9,35 @@ interface ExpertNavigationProps {
 
 const ExpertNavigation: React.FC<ExpertNavigationProps> = ({ activeSection, setActiveSection }) => {
   return (
-    <div className="bg-islamic-charcoal border border-gold/10 rounded-xl overflow-hidden transform-3d" style={{ transform: 'translateZ(10px)' }}>
-      <button 
-        onClick={() => setActiveSection('biography')}
-        className={`w-full py-3 px-4 text-left flex items-center transition-colors ${activeSection === 'biography' ? 'bg-gold/20 text-gold-light' : 'hover:bg-gold/10 text-white/80'}`}
-      >
-        <Book size={18} className="mr-2" />
-        <span>Biography</span>
-      </button>
-      <button 
-        onClick={() => setActiveSection('works')}
-        className={`w-full py-3 px-4 text-left flex items-center transition-colors ${activeSection === 'works' ? 'bg-gold/20 text-gold-light' : 'hover:bg-gold/10 text-white/80'}`}
-      >
-        <ScrollText size={18} className="mr-2" />
-        <span>Major Works</span>
-      </button>
-      <button 
-        onClick={() => setActiveSection('legacy')}
-        className={`w-full py-3 px-4 text-left flex items-center transition-colors ${activeSection === 'legacy' ? 'bg-gold/20 text-gold-light' : 'hover:bg-gold/10 text-white/80'}`}
-      >
-        <Quote size={18} className="mr-2" />
-        <span>Legacy & Influence</span>
-      </button>
-    </div>
+    <ul className="space-y-3">
+      <li className={activeSection === 'biography' ? 'text-gold' : 'text-white/60'}>
+        <button 
+          onClick={() => setActiveSection('biography')}
+          className="hover:text-gold transition-colors flex items-center w-full text-left"
+        >
+          <Book size={16} className="mr-2" />
+          <span>Biography</span>
+        </button>
+      </li>
+      <li className={activeSection === 'works' ? 'text-gold' : 'text-white/60'}>
+        <button 
+          onClick={() => setActiveSection('works')}
+          className="hover:text-gold transition-colors flex items-center w-full text-left"
+        >
+          <ScrollText size={16} className="mr-2" />
+          <span>Major Works</span>
+        </button>
+      </li>
+      <li className={activeSection === 'legacy' ? 'text-gold' : 'text-white/60'}>
+        <button 
+          onClick={() => setActiveSection('legacy')}
+          className="hover:text-gold transition-colors flex items-center w-full text-left"
+        >
+          <Quote size={16} className="mr-2" />
+          <span>Legacy & Influence</span>
+        </button>
+      </li>
+    </ul>
   );
 };
 

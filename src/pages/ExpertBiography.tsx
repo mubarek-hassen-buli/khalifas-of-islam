@@ -8,9 +8,7 @@ import { experts, Expert } from '@/data/expertsData';
 import ExpertHero from '@/components/expert/ExpertHero';
 import ExpertSidebar from '@/components/expert/ExpertSidebar';
 import ExpertContent from '@/components/expert/ExpertContent';
-import ExpertNavigation from '@/components/expert/ExpertNavigation';
 import NotFound from '@/components/caliph/NotFound';
-import { useIsMobile } from '@/hooks/use-mobile';
 
 const ExpertBiography = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -18,7 +16,6 @@ const ExpertBiography = () => {
   const [loading, setLoading] = useState(true);
   const [activeSection, setActiveSection] = useState('biography');
   const { toast } = useToast();
-  const isMobile = useIsMobile();
   
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -57,30 +54,18 @@ const ExpertBiography = () => {
       
       <ExpertHero expert={expert} />
       
-      {/* Main Content */}
-      <div className="container mx-auto px-4 py-12 md:py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          <ExpertSidebar expert={expert} />
-          
-          {/* Navigation - Desktop in separate column, Mobile above content */}
-          <div className="hidden lg:block lg:col-span-1">
-            <ExpertNavigation 
-              activeSection={activeSection} 
-              setActiveSection={setActiveSection} 
-            />
-          </div>
-          
-          {/* Mobile Navigation - Only visible on mobile */}
-          <div className="lg:hidden mb-6 col-span-1">
-            <ExpertNavigation 
-              activeSection={activeSection} 
-              setActiveSection={setActiveSection} 
-            />
-          </div>
-          
-          <div className="lg:col-span-2">
+      {/* Main Content - Matches CaliphBiography layout */}
+      <div className="container mx-auto px-6 py-16 relative">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
+          <div className="lg:col-span-2 space-y-10">
             <ExpertContent expert={expert} activeSection={activeSection} />
           </div>
+          
+          <ExpertSidebar 
+            expert={expert} 
+            activeSection={activeSection}
+            setActiveSection={setActiveSection}
+          />
         </div>
       </div>
       
