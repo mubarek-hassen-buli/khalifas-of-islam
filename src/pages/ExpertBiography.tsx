@@ -8,6 +8,7 @@ import { experts, Expert } from '@/data/expertsData';
 import ExpertHero from '@/components/expert/ExpertHero';
 import ExpertSidebar from '@/components/expert/ExpertSidebar';
 import ExpertContent from '@/components/expert/ExpertContent';
+import ExpertNavigation from '@/components/expert/ExpertNavigation';
 import NotFound from '@/components/caliph/NotFound';
 import { useIsMobile } from '@/hooks/use-mobile';
 
@@ -59,22 +60,25 @@ const ExpertBiography = () => {
       {/* Main Content */}
       <div className="container mx-auto px-4 py-12 md:py-16">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          <ExpertSidebar 
-            expert={expert} 
-            activeSection={activeSection}
-            setActiveSection={setActiveSection}
-            isMobile={isMobile}
-          />
+          <ExpertSidebar expert={expert} />
           
-          {/* Navigation is now only rendered once - in the Desktop column */}
-          {!isMobile && (
-            <div className="hidden lg:block">
-              <ExpertContent expert={expert} activeSection={activeSection} />
-            </div>
-          )}
+          {/* Navigation - Desktop in separate column, Mobile above content */}
+          <div className="hidden lg:block lg:col-span-1">
+            <ExpertNavigation 
+              activeSection={activeSection} 
+              setActiveSection={setActiveSection} 
+            />
+          </div>
           
-          {/* Mobile and Desktop Content */}
-          <div className={isMobile ? "col-span-1" : "lg:col-span-2"}>
+          {/* Mobile Navigation - Only visible on mobile */}
+          <div className="lg:hidden mb-6 col-span-1">
+            <ExpertNavigation 
+              activeSection={activeSection} 
+              setActiveSection={setActiveSection} 
+            />
+          </div>
+          
+          <div className="lg:col-span-2">
             <ExpertContent expert={expert} activeSection={activeSection} />
           </div>
         </div>

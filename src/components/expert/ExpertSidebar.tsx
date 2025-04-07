@@ -1,16 +1,12 @@
 
 import React from 'react';
 import { Expert } from '@/data/expertsData';
-import ExpertNavigation from './ExpertNavigation';
 
 interface ExpertSidebarProps {
   expert: Expert;
-  activeSection: string;
-  setActiveSection: (section: string) => void;
-  isMobile: boolean;
 }
 
-const ExpertSidebar: React.FC<ExpertSidebarProps> = ({ expert, activeSection, setActiveSection, isMobile }) => {
+const ExpertSidebar: React.FC<ExpertSidebarProps> = ({ expert }) => {
   return (
     <div className="lg:col-span-1">
       <div className="bg-islamic-charcoal border border-gold/10 rounded-xl p-6 mb-6 transform-3d" style={{ transform: 'translateZ(10px)' }}>
@@ -46,16 +42,6 @@ const ExpertSidebar: React.FC<ExpertSidebarProps> = ({ expert, activeSection, se
           </div>
         </div>
       </div>
-      
-      {/* Mobile Navigation - Only visible on mobile */}
-      {isMobile && (
-        <div className="mb-6">
-          <ExpertNavigation 
-            activeSection={activeSection} 
-            setActiveSection={setActiveSection} 
-          />
-        </div>
-      )}
     </div>
   );
 };
