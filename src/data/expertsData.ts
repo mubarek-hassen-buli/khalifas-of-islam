@@ -25,6 +25,7 @@ export interface Expert {
   image: string;
   coverImage: string;
   slug: string;
+  pdfDownload?: string; // Optional path to downloadable PDF biography
 }
 
 export const experts: Expert[] = [
@@ -80,6 +81,7 @@ export const experts: Expert[] = [
     image: "/images/expert-1.jpg",
     coverImage: "/images/expert-img-1.jpg",
     slug: "al-tabari",
+    pdfDownload: "/pdfs/al-tabari-biography.pdf",
   },
   {
     name: "Ibn Kathir",

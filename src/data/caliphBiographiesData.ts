@@ -17,6 +17,7 @@ export interface CaliphBiography {
   death: string;
   legacy: string;
   historicalContext: string;
+  pdfDownload?: string; // Optional path to downloadable PDF biography
 }
 
 export type CaliphBiographiesData = {
@@ -33,8 +34,8 @@ export const caliphBiographies: CaliphBiographiesData = {
     birthplace: "Mecca, Arabia",
     fullName: "Abdullah ibn Abi Quhafah",
     mainImage: "/images/background-img-1.jpg",
-    secondaryImage:
-      "/images/background-img-2.jpg",
+    secondaryImage: "/images/background-img-2.jpg",
+    pdfDownload: "/pdfs/abu-bakr-biography.pdf",
     background:
       "Abu Bakr was born into a wealthy merchant family and was known for his honest business practices. He was among the first converts to Islam and was Prophet Muhammad's closest companion.",
     personalLife:
@@ -69,8 +70,7 @@ export const caliphBiographies: CaliphBiographiesData = {
     birthplace: "Mecca, Arabia",
     fullName: "Umar ibn Al-Khattab Al-Adawi Al-Qurashi",
     mainImage: "/images/background-img-2.jpg",
-    secondaryImage:
-      "/images/background-img-4.jpg",
+    secondaryImage: "/images/background-img-4.jpg",
     background:
       "Born to a merchant family of the Banu Adi clan, Umar was initially one of Islam's strongest opponents before becoming one of its most ardent supporters. His conversion marked a turning point for the early Muslim community.",
     personalLife:
@@ -105,8 +105,7 @@ export const caliphBiographies: CaliphBiographiesData = {
     birthplace: "Ta'if, Arabia",
     fullName: "Uthman ibn Affan ibn Abi al-As",
     mainImage: "/images/background-img-3.jpg",
-    secondaryImage:
-      "/images/background-img-3.jpg",
+    secondaryImage: "/images/background-img-3.jpg",
     background:
       "Born into the wealthy Umayyad clan, Uthman was a successful merchant before embracing Islam. He was known for his modesty and generosity despite his wealth. He earned the title 'Dhun-Nurayn' (Possessor of Two Lights) for marrying two of Prophet Muhammad's daughters, Ruqayyah and Umm Kulthum.",
     personalLife:
