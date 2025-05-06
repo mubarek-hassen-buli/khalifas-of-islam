@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { Menu, X, ChevronRight } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,6 +16,24 @@ const Navbar = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Handle smooth scrolling to sections when hash links are clicked
+  const scrollToSection = (sectionId: string) => {
+    setIsMenuOpen(false);
+
+    // If we're not on the home page, navigate to home first
+    if (location.pathname !== "/") {
+      return; // Let React Router handle the navigation to '/#section'
+    }
+
+    // We're on the home page, scroll to the section
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+      // Update URL without page reload
+      window.history.pushState(null, "", `/#${sectionId}`);
+    }
+  };
 
   return (
     <nav
@@ -44,30 +63,47 @@ const Navbar = () => {
           <Link
             to="/"
             className="text-sm text-white hover:text-gold-light transition-colors duration-200"
+            onClick={() => setIsMenuOpen(false)}
           >
             Home
           </Link>
           <Link
-            to="/caliphs"
+            to="/#caliphs"
             className="text-sm text-white hover:text-gold-light transition-colors duration-200"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection("caliphs");
+            }}
           >
             Caliphs
           </Link>
           <Link
-            to="/practices"
+            to="/#practices"
             className="text-sm text-white hover:text-gold-light transition-colors duration-200"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection("practices");
+            }}
           >
             Practices
           </Link>
           <Link
-            to="/history"
+            to="/#history"
             className="text-sm text-white hover:text-gold-light transition-colors duration-200"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection("history");
+            }}
           >
             History
           </Link>
           <Link
-            to="/experts"
+            to="/#experts"
             className="text-sm text-white hover:text-gold-light transition-colors duration-200"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection("experts");
+            }}
           >
             Experts
           </Link>
@@ -99,28 +135,40 @@ const Navbar = () => {
           <Link
             to="/#caliphs"
             className="text-lg text-white hover:text-gold-light transition-colors duration-200 flex justify-between items-center"
-            onClick={() => setIsMenuOpen(false)}
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection("caliphs");
+            }}
           >
             Caliphs <ChevronRight size={20} className="text-gold-light" />
           </Link>
           <Link
             to="/#practices"
             className="text-lg text-white hover:text-gold-light transition-colors duration-200 flex justify-between items-center"
-            onClick={() => setIsMenuOpen(false)}
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection("practices");
+            }}
           >
             Practices <ChevronRight size={20} className="text-gold-light" />
           </Link>
           <Link
             to="/#history"
             className="text-lg text-white hover:text-gold-light transition-colors duration-200 flex justify-between items-center"
-            onClick={() => setIsMenuOpen(false)}
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection("history");
+            }}
           >
             History <ChevronRight size={20} className="text-gold-light" />
           </Link>
           <Link
             to="/#experts"
             className="text-lg text-white hover:text-gold-light transition-colors duration-200 flex justify-between items-center"
-            onClick={() => setIsMenuOpen(false)}
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection("experts");
+            }}
           >
             Experts <ChevronRight size={20} className="text-gold-light" />
           </Link>
